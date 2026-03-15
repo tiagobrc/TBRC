@@ -1,0 +1,13 @@
+{
+  "__default__": {
+    "cpus_per_task": "1",
+    "name": "{rule}",
+    "partition": "hpc_bigmem_a",
+    "time": "02:00:00",
+    "mem": "4G",
+    "output": "slurm_outs/{rule}.out",
+    "error": "slurm_outs/{rule}.err",
+    "mailto": "trezende@rockefeller.edu",
+    "mailtype": "END,FAIL"
+  }
+}

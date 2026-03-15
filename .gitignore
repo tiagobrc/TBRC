@@ -1,0 +1,42 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# R session / cache files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Python / general cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Workflow runtime state
+.snakemake/
+
+# Local run inputs and generated outputs
+frontend/runs/
+backend/data/runs/
+backend/results/
+backend/logs/
+backend/slurm_outs/
+test results/
+
+# Generated barcode / temporary artifacts
+frontend/bc/*/
+!frontend/bc/bc_names.txt
+
+# Generated IGBlast build outputs
+backend/igblast/work/
+
+# Local archives and packaged deliverables
+*.zip
+*.tar.gz
+
+# Local helper outputs
+/tmp/

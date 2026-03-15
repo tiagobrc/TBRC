@@ -1,0 +1,53 @@
+null device 
+          1 
+null device 
+          1 
+This is cutadapt 4.8 with Python 3.11.6
+Command line parameters: -g GGGAATTCGAGGTGCAGCTGCAGGAGTCTGG -e 0.2 --discard-untrimmed -o results/trezende/Tiago_Test/Tiago_Test_1/Tiago_Test_1.imgt.ready.fasta results/trezende/Tiago_Test/Tiago_Test_1/Tiago_Test_1.final.fasta
+Processing single-end reads on 1 core ...
+Finished in 0.011 s (14.005 µs/read; 4.28 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:                     798
+Reads with adapters:                       798 (100.0%)
+Reads written (passing filters):           798 (100.0%)
+
+Total basepairs processed:       373,237 bp
+Total written (filtered):        340,396 bp (91.2%)
+
+=== Adapter 1 ===
+
+Sequence: GGGAATTCGAGGTGCAGCTGCAGGAGTCTGG; Type: regular 5'; Length: 31; Trimmed: 798 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-4 bp: 0; 5-9 bp: 1; 10-14 bp: 2; 15-19 bp: 3; 20-24 bp: 4; 25-29 bp: 5; 30-31 bp: 6
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+35	1	0.0	6	0 0 0 0 0 0 1
+39	1	0.0	6	0 0 0 1
+40	18	0.0	6	0 18
+41	701	0.0	6	666 32 2 0 0 1
+42	7	0.0	6	2 5
+43	68	0.0	6	67 1
+44	2	0.0	6	0 0 0 0 0 2
+null device 
+          1 
+null device 
+          1 
+  adding: Tiago_Test_1.imgt.ready.fasta (deflated 87%)
+  adding: Tiago_Test_1.final.fasta (deflated 88%)
+  adding: qc/ (stored 0%)
+  adding: qc/post_trim.contig_lengths.pdf (deflated 12%)
+  adding: qc/pre_trim.contig_lengths.tsv (deflated 24%)
+  adding: qc/post_trim.contig_lengths.png (deflated 22%)
+  adding: qc/post_trim.contig_lengths.tsv (deflated 24%)
+  adding: qc/pre_trim.contig_lengths.pdf (deflated 12%)
+  adding: qc/pre_trim.contig_lengths.png (deflated 22%)
+Packaged output target: results/trezende/Tiago_Test/Tiago_Test_1/Tiago_Test_1.zip
+Packaged zip path: results/trezende/Tiago_Test/Tiago_Test_1/Tiago_Test_1.zip
+-rw-r--r-- 1 trezende muci 192K Mar 14 15:08 results/trezende/Tiago_Test/Tiago_Test_1/Tiago_Test_1.zip
+Transfer destination: tiago@victoranas:/volume1/victoracfs/pipelines/tbrc/results/trezende/
+Transfer ssh port: 2112

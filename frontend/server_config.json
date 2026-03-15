@@ -1,0 +1,31 @@
+{
+  "storage_server": {
+    "mucidalab3": {
+      "rawdata_path": "mucidalab@mucidalab3:/volume1/LMI_shared/pipelines/tbrc/rawdata/",
+      "results_path": "mucidalab@mucidalab3:/volume1/LMI_shared/pipelines/tbrc/results/",
+      "ssh_port": 2112,
+      "web_port": 45912,
+      "transfer_mode": "push"
+    },
+    "victoranas": {
+      "rawdata_path": "tiago@victoranas:/volume1/victoracfs/pipelines/tbrc/rawdata/",
+      "results_path": "tiago@victoranas:/volume1/victoracfs/pipelines/tbrc/results/",
+      "ssh_port": 2112,
+      "web_port": 45789,
+      "transfer_mode": "push"
+    }
+  },
+  "cluster": {
+    "dtn_host": "dtn02-hpc.rockefeller.edu",
+    "ssh_host": "login06-hpc.rockefeller.edu",
+    "pipeline_root": "/ru-auth/local/home/trezende/scratch/vict_lab_scratch/pipelines/TBRC",
+    "snakemake_env": "snakemake",
+    "path_prefix": "/rugpfs/fs0/vict_lab/scratch/trezende/anaconda3/condabin:/ru-auth/local/home/trezende/local/bin/:/usr/lib64/qt-3.3/bin:/ru-auth/local/home/trezende/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/ru-auth/local/home/trezende/bin/",
+    "igblast_bin": "igblastn",
+    "igblast_organism": "human",
+    "igblast_db_v": "",
+    "igblast_db_d": "",
+    "igblast_db_j": "",
+    "igblast_auxiliary_data": ""
+  }
+}

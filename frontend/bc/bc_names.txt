@@ -1,0 +1,8 @@
+"bcname"
+"B cell" "B"
+"B cell2" "B2"
+"T cell" "T"
+"B cell TA" "B_Juhee"
+"LukaP" "LukaP"
+"Carla_Barcodes" "CBC"
+"" ""

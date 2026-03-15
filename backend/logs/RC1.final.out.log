@@ -1,0 +1,62 @@
+Working directory: /lustre/fs4/vict_lab/scratch/trezende/pipelines/TBRC
+Result directory: results/trezende/RC1/RC1
+null device 
+          1 
+null device 
+          1 
+This is cutadapt 4.8 with Python 3.11.6
+Command line parameters: -g GGGAATTCGAGGTGCAGCTGCAGGAGTCTGG -e 0.2 --discard-untrimmed -o results/trezende/RC1/RC1/RC1.imgt.ready.fasta results/trezende/RC1/RC1/RC1.final.fasta
+Processing single-end reads on 1 core ...
+Finished in 0.020 s (21.069 µs/read; 2.85 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:                     939
+Reads with adapters:                       937 (99.8%)
+Reads written (passing filters):           937 (99.8%)
+
+Total basepairs processed:       432,420 bp
+Total written (filtered):        392,946 bp (90.9%)
+
+=== Adapter 1 ===
+
+Sequence: GGGAATTCGAGGTGCAGCTGCAGGAGTCTGG; Type: regular 5'; Length: 31; Trimmed: 937 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-4 bp: 0; 5-9 bp: 1; 10-14 bp: 2; 15-19 bp: 3; 20-24 bp: 4; 25-29 bp: 5; 30-31 bp: 6
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+39	3	0.0	6	0 0 3
+40	12	0.0	6	1 7 1 2 1
+41	859	0.0	6	805 22 14 9 6 3
+42	13	0.0	6	0 2 0 4 6 1
+43	50	0.0	6	47 2 1
+null device 
+          1 
+null device 
+          1 
+  adding: RC1.imgt.ready.fasta (deflated 89%)
+  adding: RC1.final.fasta (deflated 90%)
+  adding: qc/ (stored 0%)
+  adding: qc/post_trim.contig_lengths.pdf (deflated 12%)
+  adding: qc/pre_trim.contig_lengths.tsv (deflated 24%)
+  adding: qc/post_trim.contig_lengths.png (deflated 22%)
+  adding: qc/post_trim.contig_lengths.tsv (deflated 24%)
+  adding: qc/pre_trim.contig_lengths.pdf (deflated 12%)
+  adding: qc/pre_trim.contig_lengths.png (deflated 23%)
+Packaged output target: results/trezende/RC1/RC1/RC1.zip
+Packaged zip path: results/trezende/RC1/RC1/RC1.zip
+-rw-r--r-- 1 trezende muci 186K Mar 14 19:11 results/trezende/RC1/RC1/RC1.zip
+Transfer destination: tiago@victoranas:/volume1/victoracfs/pipelines/tbrc/results/trezende/
+Transfer ssh port: 2112
+sending incremental file list
+RC1.zip
+         32,768  17%    0.00kB/s    0:00:00          189,901 100%  149.85MB/s    0:00:00 (xfr#1, to-chk=0/1)
+
+sent 190,043 bytes  received 1,685 bytes  383,456.00 bytes/sec
+total size is 189,901  speedup is 0.99
+Remote file check: tiago@victoranas:/volume1/victoracfs/pipelines/tbrc/results/trezende/RC1.zip
+-rw-r--r-- 1 tiago users 186K Mar 14 18:11 /volume1/victoracfs/pipelines/tbrc/results/trezende/RC1.zip
+victoranas ok.
