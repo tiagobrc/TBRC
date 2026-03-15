@@ -1,0 +1,106 @@
+import pandas as pd
+import os
+import re
+import glob
+
+#Get PATH variable
+DATA_TABLE=os.environ.get("DATA_TABLE")
+FILE_PATH=os.path.dirname(DATA_TABLE)
+
+INPUTPATH=os.environ.get("INPUTPATH")
+gz_files = sorted(glob.glob(os.path.join(INPUTPATH, "*.fastq.gz")))
+
+def classify_read(path):
+    basename = os.path.basename(path)
+    if re.search(r'(^|[_\.-])R1([_\.-]|$)', basename, re.IGNORECASE):
+        return "R1"
+    if re.search(r'(^|[_\.-])R2([_\.-]|$)', basename, re.IGNORECASE):
+        return "R2"
+    return None
+
+read1_matches = [path for path in gz_files if classify_read(path) == "R1"]
+read2_matches = [path for path in gz_files if classify_read(path) == "R2"]
+
+if len(read1_matches) != 1 or len(read2_matches) != 1:
+    raise ValueError(
+        "Expected exactly one R1 and one R2 FASTQ.gz file in {}. Found R1={}, R2={}.".format(
+            INPUTPATH, read1_matches, read2_matches
+        )
+    )
+
+READ1_GZ = read1_matches[0]
+READ2_GZ = read2_matches[0]
+
+def sample_name_from_reads(read1_path, read2_path):
+    read1_name = os.path.basename(read1_path)
+    read2_name = os.path.basename(read2_path)
+
+    patterns = [
+        r'([_\.-])R1([_\.-]|$)',
+        r'([_\.-])R2([_\.-]|$)',
+        r'([_\.-])001([_\.-]|$)',
+        r'([_\.-])S\d+([_\.-]|$)',
+        r'([_\.-])L\d{3}([_\.-]|$)',
+    ]
+
+    base1 = re.sub(r'\.fastq\.gz$', '', read1_name, flags=re.IGNORECASE)
+    base2 = re.sub(r'\.fastq\.gz$', '', read2_name, flags=re.IGNORECASE)
+
+    for pattern in patterns:
+        base1 = re.sub(pattern, r'\1', base1, flags=re.IGNORECASE)
+        base2 = re.sub(pattern, r'\1', base2, flags=re.IGNORECASE)
+
+    base1 = re.sub(r'[_\.-]+$', '', base1)
+    base2 = re.sub(r'[_\.-]+$', '', base2)
+
+    if base1 != base2:
+        raise ValueError("Could not infer a common sample name from {} and {}.".format(read1_name, read2_name))
+
+    return base1
+
+SAMPLE = sample_name_from_reads(READ1_GZ, READ2_GZ)
+#Variables 
+samples_df=pd.read_table('{}'.format(DATA_TABLE))
+#SAMPLE=list(samples_df['basename'])
+SOUR=list(samples_df['source'])
+DEST=list(samples_df['dest'])
+SAMP=list(samples_df['user_id'])
+EMAIL=list(samples_df['user_email'])
+SERVER=list(samples_df['server_name'])
+SERVER_PATH=list(samples_df['server_path'])
+SERVER_SSH_PORT=list(samples_df['server_ssh_port'])
+SERVER_TRANSFER_MODE=list(samples_df['server_transfer_mode'])
+BARC=list(samples_df['primer_set'])
+HEAD=list(samples_df['sequence_number'])
+PIPE=list(samples_df['pipeline'])
+METH=list(samples_df['luka_light_protocol'])
+RUN_IGBLAST=list(samples_df['run_igblast'])
+RUN_CLONALITY=list(samples_df['run_clonality'])
+IGBLAST_SPECIES=list(samples_df['igblast_species'])
+IGBLAST_PANEL=list(samples_df['igblast_panel'])
+IGBLAST_BIN=list(samples_df['igblast_bin'])
+IGBLAST_ORGANISM=list(samples_df['igblast_organism'])
+IGBLAST_DB_V=list(samples_df['igblast_db_v'])
+IGBLAST_DB_D=list(samples_df['igblast_db_d'])
+IGBLAST_DB_J=list(samples_df['igblast_db_j'])
+IGBLAST_AUX=list(samples_df['igblast_auxiliary_data'])
+KEEP=list(samples_df['keep_raw'])
+TRIM=list(samples_df['trim_seq'])
+TRIM_PRIMERS=list(samples_df['trim_primers'])
+ARCHIVE_FORMAT=list(samples_df['archive_format']) if 'archive_format' in samples_df.columns else ['zip'] * len(samples_df.index)
+ARCHIVE_EXT=[fmt if fmt == 'zip' else 'tar.gz' for fmt in ARCHIVE_FORMAT]
+
+
+##### setup report
+#configfile: "config/config.yaml"
+
+
+rule all:
+	input:
+		expand("{destiny}/{sample}/{sample}.{archive_ext}", destiny=DEST, sample=SAMPLE, archive_ext=ARCHIVE_EXT)
+
+##### load rules ##### 
+include: "rules/trim_reads.smk"
+include: "rules/pandaseq.smk"
+include: "rules/genfasta.smk"
+include: "rules/final.smk"

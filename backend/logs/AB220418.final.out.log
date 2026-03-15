@@ -1,0 +1,33 @@
+Working directory: /lustre/fs4/vict_lab/scratch/trezende/pipelines/TBRC
+Result directory: results/trezende/Angelina/AB220418
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+  adding: AB220418.imgt.ready.fasta (deflated 86%)
+  adding: AB220418.final.fasta (deflated 86%)
+  adding: qc/ (stored 0%)
+  adding: qc/post_trim.contig_lengths.pdf (deflated 12%)
+  adding: qc/pre_trim.contig_lengths.tsv (deflated 29%)
+  adding: qc/post_trim.contig_lengths.png (deflated 27%)
+  adding: qc/post_trim.contig_lengths.tsv (deflated 29%)
+  adding: qc/pre_trim.contig_lengths.pdf (deflated 12%)
+  adding: qc/pre_trim.contig_lengths.png (deflated 29%)
+Packaged output target: results/trezende/Angelina/AB220418/AB220418.zip
+Packaged zip path: results/trezende/Angelina/AB220418/AB220418.zip
+-rw-r--r-- 1 trezende muci 103K Mar 14 18:20 results/trezende/Angelina/AB220418/AB220418.zip
+Transfer destination: mucidalab@mucidalab3:/volume1/LMI_shared/pipelines/tbrc/results/trezende/
+Transfer ssh port: 2112
+sending incremental file list
+AB220418.zip
+         32,768  31%    0.00kB/s    0:00:00          104,520 100%   68.43MB/s    0:00:00 (xfr#1, to-chk=0/1)
+
+sent 104,651 bytes  received 35 bytes  209,372.00 bytes/sec
+total size is 104,520  speedup is 1.00
+Remote file check: mucidalab@mucidalab3:/volume1/LMI_shared/pipelines/tbrc/results/trezende/AB220418.zip
+-rw-r--r-- 1 mucidalab users 103K Mar 14 18:20 /volume1/LMI_shared/pipelines/tbrc/results/trezende/AB220418.zip
+mucidalab3 ok.
